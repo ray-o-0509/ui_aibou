@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_aibou/models/chatMessageModel.dart';
+import 'package:ui_aibou/screens/wordsDifinitionPage.dart';
 
 class chatPage extends StatefulWidget {
   @override
@@ -19,14 +20,17 @@ class _chatPageState extends State<chatPage> {
               padding: EdgeInsets.only(right: 16),
               child: Row(
                 children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: Colors.black,
-                    ),
+                  // IconButton(
+                  //   onPressed: () {
+                  //     Navigator.pop(context);
+                  //   },
+                  //   icon: Icon(
+                  //     Icons.close,
+                  //     color: Colors.black,
+                  //   ),
+                  // ),
+                  SizedBox(
+                    width: 20,
                   ),
                   Expanded(
                     child: Column(
@@ -49,11 +53,15 @@ class _chatPageState extends State<chatPage> {
                       ],
                     ),
                   ),
-                  Icon(
-                    Icons.stacked_bar_chart,
-                    color: Colors.black54,
-                    size: 30,
-                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.close,
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -70,34 +78,57 @@ class _chatPageState extends State<chatPage> {
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return Container(
-                  padding:
-                      EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: Align(
                     alignment: (messages[index].messageType == "receiver"
                         ? Alignment.topLeft
                         : Alignment.topRight),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.6),
-                            spreadRadius: 0,
-                            blurRadius: 10,
-                            offset: Offset(2, 2), // changes position of shadow
-                          ),
-                        ],
-                        color: (messages[index].messageType == "receiver"
-                            ? Colors.white
-                            : Colors.blue[200]),
-                      ),
-                      padding: EdgeInsets.all(16),
-                      child: Text(
-                        messages[index].messageContent,
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: (messages[index].messageType == "receiver"
-                                ? Colors.grey.shade900
-                                : Colors.white)),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return wordsDifinitionPage();
+                        }));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.6),
+                                spreadRadius: 0,
+                                blurRadius: 10,
+                                offset:
+                                    Offset(2, 2), // changes position of shadow
+                              ),
+                            ],
+                            gradient: (messages[index].messageType == "receiver"
+                                ? LinearGradient(
+                                    begin: FractionalOffset.topLeft,
+                                    end: FractionalOffset.bottomRight,
+                                    colors: [
+                                      const Color.fromRGBO(255, 255, 255, 1),
+                                      const Color.fromRGBO(255, 255, 255, 1),
+                                    ],
+                                  )
+                                : LinearGradient(
+                                    begin: FractionalOffset.topLeft,
+                                    end: FractionalOffset.bottomRight,
+                                    colors: [
+                                      const Color.fromRGBO(43, 230, 237, 1),
+                                      const Color.fromRGBO(43, 160, 250, 1),
+                                    ],
+                                  ))),
+                        padding: EdgeInsets.all(16),
+                        child: Text(
+                          messages[index].messageContent,
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: .4,
+                              color: (messages[index].messageType == "receiver"
+                                  ? Colors.grey.shade900
+                                  : Colors.white)),
+                        ),
                       ),
                     ),
                   ),
@@ -181,13 +212,16 @@ class _chatPageState extends State<chatPage> {
   }
 
   List<ChatMessage> messages = [
-    ChatMessage(messageContent: "Hello, Will", messageType: "receiver"),
-    ChatMessage(messageContent: "How have you been?", messageType: "receiver"),
     ChatMessage(
-        messageContent: "Hey Kriss, I am doing fine dude. wbu?",
-        messageType: "sender"),
-    ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
+        messageContent: "Hello! How may I help you?", messageType: "receiver"),
     ChatMessage(
-        messageContent: "Is there any thing wrong?", messageType: "sender"),
+        messageContent: "Hello! How may I help you?", messageType: "sender"),
+    ChatMessage(
+        messageContent: "Sure. How many tickets would you like?",
+        messageType: "receiver"),
+    ChatMessage(messageContent: "4 tickets please.", messageType: "sender"),
+    ChatMessage(
+        messageContent: "Okay. Here's your ticket and it’s ＄40.",
+        messageType: "receiver"),
   ];
 }
