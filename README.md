@@ -1,16 +1,20 @@
-# ui_aibou
+# UI AIbou
 
-A new Flutter application.
+`AI英会話アプリのUIをメインに作成したリポジトリ。`
 
-## Getting Started
+### ページ
+ーーーーーーーーーーーー
+#### _完成_
+- シナリオ一覧ページ
+- チャットページ
 
-This project is a starting point for a Flutter application.
+ーーーーーーーーーーーー
+#### _作成中_
+- ワードリストページ
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ーーーーーーーーーーーー
+#### _未作成ページ_
+- シナリオ詳細
+- ログインページ
+- 検索ページ
+- 

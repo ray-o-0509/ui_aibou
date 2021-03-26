@@ -23,9 +23,14 @@ class _situationListState extends State<situationList> {
     double screenWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return chatPage();
-          }));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return chatPage();
+                },
+                fullscreenDialog: true,
+              ));
         },
         child: Container(
           child: Row(
