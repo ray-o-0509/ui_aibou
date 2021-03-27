@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/homePage.dart';
+import 'screens/signInPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: signInPage(),
     );
   }
 }

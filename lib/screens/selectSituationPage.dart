@@ -42,13 +42,13 @@ class _ChatPageState extends State<ChatPage> {
                         children: <Widget>[
                           Icon(
                             Icons.favorite_border,
-                            color: Colors.grey.shade700,
+                            color: Colors.grey.shade800,
                             size: 22,
                           ),
                           SizedBox(width: 10),
                           Icon(
                             Icons.search_rounded,
-                            color: Colors.grey.shade700,
+                            color: Colors.grey.shade800,
                             size: 22,
                           ),
                         ],
