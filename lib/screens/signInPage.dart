@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ui_aibou/screens/homePage.dart';
 
-class signInPage extends StatelessWidget {
+class signInPage extends StatefulWidget {
+  @override
+  _signInPageState createState() => _signInPageState();
+}
+
+class _signInPageState extends State<signInPage> {
   @override
   Widget build(BuildContext context) {
     double screen_height = MediaQuery.of(context).size.height;
@@ -125,9 +130,9 @@ class signInPage extends StatelessWidget {
                       children: [
                         Checkbox(
                           activeColor: Colors.cyan,
-                          value: true,
-                          // value: _isCheck,
-                          // onChanged: _handleCheckbox,
+                          // value: true,
+                          value: _isCheck,
+                          onChanged: _handleCheckbox,
                           checkColor: Colors.white,
                         ),
                         Text(
@@ -184,12 +189,12 @@ class signInPage extends StatelessWidget {
       ),
     );
   }
+
+  bool _isCheck = false;
+
+  void _handleCheckbox(bool isCheck) {
+    setState(() {
+      _isCheck = isCheck;
+    });
+  }
 }
-
-// bool _isCheck = false;
-
-// void _handleCheckbox(bool isCheck) {
-//   setState(() {
-//     _isCheck = isCheck;
-//   });
-// }
