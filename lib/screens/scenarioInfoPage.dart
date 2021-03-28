@@ -53,20 +53,6 @@ class _scenarioInfoPageState extends State<scenarioInfoPage> {
                       color: Colors.white,
                     ),
                   ),
-                  // SizedBox(
-                  //   width: 20,
-                  // ),
-                  // Text(
-                  //   "Scenario Info.",
-                  //   style: TextStyle(
-                  //       fontSize: 16,
-                  //       fontWeight: FontWeight.w500,
-                  //       color: Colors.grey.shade800,
-                  //       letterSpacing: 1),
-                  // ),
-                  // SizedBox(
-                  //   width: 20,
-                  // ),
                   IconButton(
                     onPressed: () {},
                     icon: Icon(
@@ -86,6 +72,21 @@ class _scenarioInfoPageState extends State<scenarioInfoPage> {
                 width: double.infinity,
                 height: 300,
                 color: Color.fromRGBO(82, 211, 204, 1),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                        width: double.infinity,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          image: DecorationImage(
+                              image: AssetImage('images/movies.jpg'),
+                              fit: BoxFit.cover,
+                              alignment: Alignment.centerRight),
+                        ))
+                  ],
+                ),
               ),
             ]),
           ],
