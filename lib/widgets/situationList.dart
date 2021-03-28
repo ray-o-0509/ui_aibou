@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_aibou/screens/chatPage.dart';
+import 'package:ui_aibou/screens/scenarioInfoPage.dart';
 
 class situationList extends StatefulWidget {
   String name;
@@ -23,14 +23,11 @@ class _situationListState extends State<situationList> {
     double screenWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
         onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return chatPage();
-                },
-                fullscreenDialog: true,
-              ));
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return scenarioInfoPage();
+            },
+          ));
         },
         child: Container(
           child: Row(

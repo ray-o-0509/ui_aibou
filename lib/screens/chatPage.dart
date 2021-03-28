@@ -84,12 +84,14 @@ class _chatPageState extends State<chatPage> {
                         ? Alignment.topLeft
                         : Alignment.topRight),
                     child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return wordsDifinitionPage();
-                        }));
-                      },
+                      onLongPress: (messages[index].messageType == "receiver"
+                          ? () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return wordsDifinitionPage();
+                              }));
+                            }
+                          : () {}),
                       child: Container(
                         decoration: BoxDecoration(
                             boxShadow: [
