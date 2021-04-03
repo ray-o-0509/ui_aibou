@@ -95,9 +95,9 @@ class _scenarioInfoPageState extends State<scenarioInfoPage> {
                   TabWrap(),
                   Expanded(
                     child: TabBarView(children: <Widget>[
-                      TabPage(title: 'Top'),
-                      TabPage(title: 'Info'),
-                      TabPage(title: 'Level'),
+                      TabPage(title: 'トップ'),
+                      TabPage(title: '詳細'),
+                      TabPage(title: '注意点'),
                     ]),
                   ),
                 ]),
@@ -108,14 +108,17 @@ class _scenarioInfoPageState extends State<scenarioInfoPage> {
 
 class TabWrap extends StatelessWidget {
   final _tab = <Tab>[
-    Tab(text: 'Top'),
-    Tab(text: 'Info'),
-    Tab(text: 'Level'),
+    Tab(text: 'トップ'),
+    Tab(text: '詳細'),
+    Tab(text: '注意点'),
   ];
 
   @override
   Widget build(BuildContext context) {
     return TabBar(
+      indicatorColor: Colors.grey.shade800,
+      unselectedLabelColor: Colors.grey.shade400,
+      labelColor: Colors.grey.shade800,
       tabs: _tab,
     );
   }
