@@ -18,8 +18,8 @@ class _signInPageState extends State<signInPage> {
       body: Stack(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 0, horizontal: 5),
-            width: screen_width - 10,
+            margin: EdgeInsets.symmetric(vertical: 0, horizontal: 3),
+            width: screen_width - 6,
             height: screen_height - 5,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
