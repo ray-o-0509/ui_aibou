@@ -74,24 +74,24 @@ class _chatPageState extends State<chatPage> {
                   color: Colors.blue,
                 ),
                 child: Text(
-                  'Drawer Header',
+                  'Menu',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
+                    fontSize: 16,
                   ),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.message),
-                title: Text('Messages'),
+                leading: Icon(Icons.replay),
+                title: Text('リロード'),
               ),
               ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text('Profile'),
+                leading: Icon(Icons.logout),
+                title: Text('会話終了'),
               ),
               ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
+                leading: Icon(Icons.mode_edit),
+                title: Text('履歴変更'),
               ),
             ],
           ),
