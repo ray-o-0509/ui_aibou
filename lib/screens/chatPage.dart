@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_aibou/models/chatMessageModel.dart';
 import 'package:ui_aibou/screens/wordsDifinitionPage.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class chatPage extends StatefulWidget {
   @override
@@ -20,21 +21,18 @@ class _chatPageState extends State<chatPage> {
               padding: EdgeInsets.only(right: 16),
               child: Row(
                 children: [
-                  // IconButton(
-                  //   onPressed: () {
-                  //     Navigator.pop(context);
-                  //   },
-                  //   icon: Icon(
-                  //     Icons.close,
-                  //     color: Colors.black,
-                  //   ),
-                  // ),
-                  SizedBox(
-                    width: 20,
+                  IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'images/menu_button.svg',
+                      width: 30,
+                      height: 30,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                   Expanded(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
@@ -59,12 +57,43 @@ class _chatPageState extends State<chatPage> {
                     },
                     icon: Icon(
                       Icons.close,
-                      color: Colors.black,
+                      color: Colors.grey.shade800,
                     ),
                   )
                 ],
               ),
             ),
+          ),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: const <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text(
+                  'Drawer Header',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.message),
+                title: Text('Messages'),
+              ),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text('Profile'),
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
+              ),
+            ],
           ),
         ),
         body: Stack(
@@ -159,19 +188,19 @@ class _chatPageState extends State<chatPage> {
                     GestureDetector(
                       onTap: () {},
                       child: Container(
-                        height: 40,
-                        width: 40,
+                        height: 50,
+                        width: 50,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
                           image: DecorationImage(
-                            image: AssetImage('images/option_icon.png'),
+                            image: AssetImage('images/change_micro.png'),
                             fit: BoxFit.cover,
                           ),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.2),
                               spreadRadius: 0,
-                              blurRadius: 4,
+                              blurRadius: 10,
                               offset: Offset(0, 0),
                             ),
                           ],
@@ -190,6 +219,16 @@ class _chatPageState extends State<chatPage> {
                               fontSize: 14,
                             ),
                             border: InputBorder.none),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      '( 2 / 15 )',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey.shade800,
                       ),
                     ),
                     SizedBox(

@@ -132,12 +132,35 @@ class TabPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Text(title, style: TextStyle(color: Colors.red, fontSize: 15)),
-        ],
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+        child: Column(
+          // mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              '映画館にて',
+              style: TextStyle(
+                color: Colors.grey.shade800,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              '今あなたは映画館のチケット売り場にいます。AIであるClerk(従業員)と会話をして、スターウォーズの前席のチケットを4枚買いましょう。',
+              style: TextStyle(
+                color: Colors.grey.shade800,
+                fontSize: 15,
+                letterSpacing: 1,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
