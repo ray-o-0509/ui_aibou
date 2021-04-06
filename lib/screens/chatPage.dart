@@ -11,6 +11,202 @@ class chatPage extends StatefulWidget {
 class _chatPageState extends State<chatPage> {
   @override
   Widget build(BuildContext context) {
+    var text_input_field = Align(
+      alignment: Alignment.bottomLeft,
+      child: Container(
+        padding: EdgeInsets.fromLTRB(20, 5, 20, 20),
+        height: 80,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.6),
+              spreadRadius: 0,
+              blurRadius: 10,
+              offset: Offset(0, -2),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                  image: DecorationImage(
+                    image: AssetImage('images/microphone_icon.png'),
+                    fit: BoxFit.cover,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: -3,
+                      blurRadius: 5,
+                      offset: Offset(0, 0),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 15,
+            ),
+            Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                    hintText: "Type your respons...",
+                    hintStyle: TextStyle(
+                      color: Colors.grey.shade500,
+                      fontSize: 14,
+                    ),
+                    border: InputBorder.none),
+              ),
+            ),
+            SizedBox(
+              width: 15,
+            ),
+            Text(
+              '( 2 / 15 )',
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.grey.shade800,
+              ),
+            ),
+            SizedBox(
+              width: 15,
+            ),
+            Container(
+              height: 20,
+              width: 20,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('images/send_icon.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    var audio_input_field = Align(
+      alignment: Alignment.bottomLeft,
+      child: Container(
+          padding: EdgeInsets.fromLTRB(20, 5, 20, 20),
+          height: 370,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.6),
+                spreadRadius: 0,
+                blurRadius: 10,
+                offset: Offset(0, -2),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('images/send_icon.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Column(
+                children: [
+                  Text(
+                    'Sure! I am going to ...',
+                    style: TextStyle(
+                      color: Colors.grey.shade800,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      letterSpacing: .5,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 140,
+                    width: 140,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('images/push_to_talk.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Push to talk',
+                    style: TextStyle(
+                      color: Colors.grey.shade500,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      image: DecorationImage(
+                        image: AssetImage('images/keyboard_icon.png'),
+                        fit: BoxFit.cover,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: -3,
+                          blurRadius: 5,
+                          offset: Offset(0, 0),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.backspace,
+                      color: Colors.grey.shade800,
+                      size: 22,
+                    ),
+                  )
+                ],
+              ),
+            ],
+          )),
+    );
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -21,6 +217,9 @@ class _chatPageState extends State<chatPage> {
               padding: EdgeInsets.only(right: 16),
               child: Row(
                 children: [
+                  SizedBox(
+                    width: 15,
+                  ),
                   IconButton(
                     onPressed: () {},
                     icon: SvgPicture.asset(
@@ -166,88 +365,7 @@ class _chatPageState extends State<chatPage> {
                 );
               },
             ))),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Container(
-                padding: EdgeInsets.fromLTRB(20, 5, 20, 20),
-                height: 80,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.6),
-                      spreadRadius: 0,
-                      blurRadius: 10,
-                      offset: Offset(0, -2),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          image: DecorationImage(
-                            image: AssetImage('images/change_micro.png'),
-                            fit: BoxFit.cover,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              spreadRadius: 0,
-                              blurRadius: 10,
-                              offset: Offset(0, 0),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                            hintText: "Type your respons...",
-                            hintStyle: TextStyle(
-                              color: Colors.grey.shade500,
-                              fontSize: 14,
-                            ),
-                            border: InputBorder.none),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Text(
-                      '( 2 / 15 )',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey.shade800,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Container(
-                      height: 20,
-                      width: 20,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('images/send_icon.png'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            audio_input_field
           ],
         ));
   }
