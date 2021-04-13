@@ -12,7 +12,7 @@ class _chatPageState extends State<chatPage> {
   @override
   Widget build(BuildContext context) {
     bool _isListen = false;
-
+    final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
     var textInputField = Align(
       alignment: Alignment.bottomLeft,
       child: Container(
@@ -217,6 +217,7 @@ class _chatPageState extends State<chatPage> {
           )),
     );
     return Scaffold(
+        key: _key,
         appBar: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
@@ -230,7 +231,7 @@ class _chatPageState extends State<chatPage> {
                     width: 15,
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () => _key.currentState.openDrawer(),
                     icon: SvgPicture.asset(
                       'images/menu_button.svg',
                       width: 30,
