@@ -11,7 +11,9 @@ class chatPage extends StatefulWidget {
 class _chatPageState extends State<chatPage> {
   @override
   Widget build(BuildContext context) {
-    var text_input_field = Align(
+    bool _isListen = false;
+
+    var textInputField = Align(
       alignment: Alignment.bottomLeft,
       child: Container(
         padding: EdgeInsets.fromLTRB(20, 5, 20, 20),
@@ -31,7 +33,9 @@ class _chatPageState extends State<chatPage> {
         child: Row(
           children: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                _isListen = true;
+              },
               child: Container(
                 height: 50,
                 width: 50,
@@ -93,7 +97,7 @@ class _chatPageState extends State<chatPage> {
         ),
       ),
     );
-    var audio_input_field = Align(
+    var audioInputField = Align(
       alignment: Alignment.bottomLeft,
       child: Container(
           padding: EdgeInsets.fromLTRB(20, 5, 20, 20),
@@ -175,23 +179,28 @@ class _chatPageState extends State<chatPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                      image: DecorationImage(
-                        image: AssetImage('images/keyboard_icon.png'),
-                        fit: BoxFit.cover,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          spreadRadius: -3,
-                          blurRadius: 5,
-                          offset: Offset(0, 0),
+                  GestureDetector(
+                    onTap: () {
+                      _isListen = false;
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                        image: DecorationImage(
+                          image: AssetImage('images/keyboard_icon.png'),
+                          fit: BoxFit.cover,
                         ),
-                      ],
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: -3,
+                            blurRadius: 5,
+                            offset: Offset(0, 0),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   IconButton(
@@ -365,7 +374,7 @@ class _chatPageState extends State<chatPage> {
                 );
               },
             ))),
-            audio_input_field
+            _isListen ? audioInputField : textInputField
           ],
         ));
   }
